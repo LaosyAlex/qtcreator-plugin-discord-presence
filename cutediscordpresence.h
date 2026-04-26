@@ -1,6 +1,8 @@
 #ifndef CUTEDISCORDPRESENCEPLUGIN_H
 #define CUTEDISCORDPRESENCEPLUGIN_H
 
+#include <utils/result.h>
+
 #include <coreplugin/actionmanager/actioncontainer.h>
 #include <coreplugin/actionmanager/actionmanager.h>
 #include <coreplugin/actionmanager/command.h>
@@ -105,8 +107,8 @@ protected slots:
   void initializeControlMenu();
 
 public:
-  virtual bool initialize(const QStringList &arguments,
-                          QString *error_string) override;
+  Utils::Result<> initialize(const QStringList &arguments) override;
+
   virtual void extensionsInitialized() override;
   virtual ShutdownFlag aboutToShutdown() override;
 
